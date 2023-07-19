@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.linyun.file.service.impl.MinIOFileStorageService

@@ -11,6 +11,7 @@
     <packaging>pom</packaging>
 <modules>
     <module>freemarker-demo</module>
+    <module>minio-demo</module>
 </modules>
     <artifactId>leadnews-test</artifactId>
 

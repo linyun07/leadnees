@@ -3,30 +3,41 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>leadnews-service</artifactId>
+        <artifactId>leadnews-test</artifactId>
         <groupId>com.linyun</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>leadnews-article</artifactId>
+    <artifactId>minio-demo</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+
     <dependencies>
-        <!--freemarker依赖-->
+
+        <dependency>
+            <groupId>io.minio</groupId>
+            <artifactId>minio</artifactId>
+            <version>7.1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!--自己封装的MinIO依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>com.linyun</groupId>
             <artifactId>file-starter</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
+
 </project>

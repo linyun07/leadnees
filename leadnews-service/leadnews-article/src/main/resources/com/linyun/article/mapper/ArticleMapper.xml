@@ -25,6 +25,11 @@
         <result column="sync_status" property="syncStatus"/>
         <result column="static_url" property="staticUrl"/>
     </resultMap>
+    <update id="updateStaticUrlById">
+        update ap_article
+        set static_url=#{staticUrl}
+        where id = #{id};
+    </update>
 
     <!--加载文章列表-->
     <select id="listLoadArticle" resultType="com.linyun.model.article.pojo.ApArticle">

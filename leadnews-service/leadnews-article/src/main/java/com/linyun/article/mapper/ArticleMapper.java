@@ -15,10 +15,20 @@ import java.util.List;
 
 public interface ArticleMapper extends BaseMapper<ApArticle> {
 
-    /** 加载文章列表
+    /**
+     * 加载文章列表
+     *
      * @param articleHomeDto
      * @param type           1-->下滑：加载更多  2-->刷新：加载最新
      * @return
      */
     List<ApArticle> listLoadArticle(@Param("dto") ArticleHomeDto articleHomeDto, @Param("type") short type);
+
+    /**
+     * 根据Id修改staticUrl
+     * @param id
+     * @param staticUrl
+     * @return
+     */
+    int updateStaticUrlById(@Param("id") Long id, @Param("staticUrl") String staticUrl);
 }
