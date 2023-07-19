@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.linyun.wemedia.mapper.WmMaterialMapper">
+    <!--查询个人下的分页查询总条数-->
+    <select id="getCountByUserIdAndIsCollection" resultType="java.lang.Integer">
+        select count(*)
+        from wm_material
+        <where>
+            <if test="userId!=null">user_id = #{userId}</if>
+            <if test="isCollection!=null ">and is_collection = #{isCollection}</if>
+        </where>
+    </select>
+    <!--分页查询-->
+    <select id="listAllByUserIdAndIsCollection" resultType="com.linyun.model.wemedia.pojos.WmMaterial">
+        select *
+        from wm_material
+        <where>
+            <if test="userId!=null">user_id = #{userId}</if>
+            <if test="isCollection!=null ">and is_collection = #{isCollection}</if>
+        </where>
+        order by created_time
+        limit #{page},#{size}
+    </select>
+    <!--新增-->
+    <insert id="insertAll">
+        insert into wm_material
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id!=null">id,</if>
+            <if test="userId!=null">user_id,</if>
+            <if test="url!=null and url!=''">url,</if>
+            <if test="type!=null">type,</if>
+            <if test="isCollection!=null">is_collection,</if>
+            <if test="createdTime!=null">created_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id!=null">#{id},</if>
+            <if test="userId!=null">#{userId},</if>
+            <if test="url!=null and url!=''">#{url},</if>
+            <if test="type!=null">#{type},</if>
+            <if test="isCollection!=null">#{isCollection},</if>
+            <if test="createdTime!=null">#{createdTime},</if>
+        </trim>
+    </insert>
+
+    <!--总修改-->
+    <update id="updateAll">
+        update wm_material
+        <set>
+            <if test="url!=null and url!=''">url = #{url}</if>
+            <if test="type!=null ">type = #{type}</if>
+            <if test="isCollection!=null ">is_collection = #{isCollection}</if>
+        </set>
+        <where>
+            <if test="userId!=null">id = #{id}</if>
+            <if test="userId!=null">user_id = #{userId}</if>
+        </where>
+    </update>
+
+</mapper>
